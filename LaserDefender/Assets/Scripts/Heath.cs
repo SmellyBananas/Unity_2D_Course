@@ -30,7 +30,7 @@ public class Heath : MonoBehaviour
         {
             TakeDamage(damageDealer.GetDamage());
             PlayHitEffect();
-            audioPlayer.PlayDamageClip();
+            //audioPlayer.PlayDamageClip();
             ShakeCamera();
             damageDealer.Hit();
         }
@@ -71,7 +71,7 @@ public class Heath : MonoBehaviour
 
     void ShakeCamera()
     {
-        if(cameraShake != null && applyCameraShake) 
+        if (cameraShake != null && applyCameraShake) 
         {
             cameraShake.Play();
         }
