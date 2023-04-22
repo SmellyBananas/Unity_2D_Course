@@ -55,7 +55,7 @@ public class Heath : MonoBehaviour
     {
         if(!isPlayer)
         {
-            //scoreKeeper.ModifyScore(score);
+            scoreKeeper.ModifyScore(score);
         }
         Destroy(gameObject);
     }
