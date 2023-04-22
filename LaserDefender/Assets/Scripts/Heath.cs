@@ -30,7 +30,7 @@ public class Heath : MonoBehaviour
         {
             TakeDamage(damageDealer.GetDamage());
             PlayHitEffect();
-            //audioPlayer.PlayDamageClip();
+            audioPlayer.PlayDamageClip();
             ShakeCamera();
             damageDealer.Hit();
         }
