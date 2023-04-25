@@ -1,18 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class UIGameOver : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] TextMeshProUGUI scoreText;
+    ScoreKeeper scoreKeeper;
+
+    void Awake()
     {
-        
+        scoreKeeper = FindObjectOfType<ScoreKeeper>();
     }
 
-    // Update is called once per frame
-    void Update()
+    void Start()
     {
-        
+        scoreText.text = "You Scored: \n" + scoreKeeper.GetScore();
     }
+
+    
 }
