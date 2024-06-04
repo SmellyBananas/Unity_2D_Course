@@ -10,7 +10,9 @@ public class LevelManager : MonoBehaviour
      
     void Awake()
     {
-        scoreKeeper = FindObjectOfType<ScoreKeeper>()
+        scoreKeeper = FindObjectOfType<ScoreKeeper>();
+
+        Debug.Log(scoreKeeper);
     }
 
    public void LoadMainMenu()
@@ -20,8 +22,8 @@ public class LevelManager : MonoBehaviour
 
     public void LoadGame()
     {
+        scoreKeeper.ResetScore();
         SceneManager.LoadScene("Game");
-        SocreKeeper.ResetScore();
     }
 
     public void LoadGameOver()

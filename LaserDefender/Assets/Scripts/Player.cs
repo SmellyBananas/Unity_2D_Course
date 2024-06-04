@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
+    
 public class Player : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 5f;
@@ -17,6 +17,8 @@ public class Player : MonoBehaviour
     Vector2 maxBounds;
 
     Shooter shooter;
+
+    [SerializeField] private Joystick virtualJoystick;
 
     void Awake()
     {
@@ -42,7 +44,11 @@ public class Player : MonoBehaviour
 
     void Move()
     {
-        Vector2 delta = rawInput * moveSpeed * Time.deltaTime;
+
+        Vector2 joystickInput = new Vector2(virtualJoystick.Horizontal, virtualJoystick.Vertical);
+        Vector2 combinedInput = rawInput + joystickInput;
+
+        Vector2 delta = combinedInput * moveSpeed * Time.deltaTime;
         Vector2 newPos = new Vector2();
         newPos.x = Mathf.Clamp(transform.position.x + delta.x, minBounds.x + paddingLeft, maxBounds.x - paddingRight);
         newPos.y = Mathf.Clamp(transform.position.y + delta.y, minBounds.y + paddingBottom, maxBounds.y - paddingTop);

@@ -27,6 +27,7 @@ public class ScoreKeeper : MonoBehaviour
         }
         else
         {
+            Debug.Log("setting instance");
             instance = this;
             DontDestroyOnLoad(gameObject);
         }
