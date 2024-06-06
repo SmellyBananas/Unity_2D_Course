@@ -48,4 +48,6 @@ public class WaveConfigSO : ScriptableObject
         return Mathf.Clamp(spawnTime, minimumSpawnTime, float.MaxValue);
     }
 
+    
+
 }

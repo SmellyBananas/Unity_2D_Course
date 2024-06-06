@@ -30,4 +30,7 @@ public class UIDisplay : MonoBehaviour
         heathSlider.value = playerHeath.GetHeath();
         scoreText.text = scoreKepper.GetScore().ToString("000000000");
     }
+
+    
+
 }
