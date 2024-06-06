@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class Player : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 5f;
+    [SerializeField] float joystickMoveSpeed = 0.5f;
     Vector2 rawInput;
 
     [SerializeField] float paddingLeft;
@@ -45,7 +46,7 @@ public class Player : MonoBehaviour
     void Move()
     {
 
-        Vector2 joystickInput = new Vector2(virtualJoystick.Horizontal, virtualJoystick.Vertical);
+        Vector2 joystickInput = new Vector2(virtualJoystick.Horizontal, virtualJoystick.Vertical) * joystickMoveSpeed;
         Vector2 combinedInput = rawInput + joystickInput;
 
         Vector2 delta = combinedInput * moveSpeed * Time.deltaTime;
